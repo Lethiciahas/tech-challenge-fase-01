@@ -36,15 +36,14 @@ PUT /flags
 
 GET /health
 
-## Deploy na EC2
-### Build e Push da Imagem--
+## Build e Push da Imagem
 
-Após validar localmente:
+Após validar localmente, build a imagem para o repositorio dockerhub como no exemplo:
 ```bash
-docker build -t lethiciahas/toggle-lab:1.1 .
-docker push lethiciahas/toggle-lab:1.1
+docker build -t repository/name:<tag> .
+docker push repository/name:<tag>
 ```
-
+## Deploy na EC2
 1. Acesso à EC2
 ```bash
 ssh -i ~/.ssh/<chave> ubuntu@<ip_publico>
