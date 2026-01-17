@@ -121,6 +121,26 @@ http://<ip_publico>:5000/flags
 - Certifique-se de liberar a porta 5000 no Security Group da EC2.
 - O RDS deve permitir acesso da EC2 na porta 5432.
 
+## Discussão 12-Factor App
+
+Os 12 princípios do 12-Factor App constituem um conjunto de boas práticas para o desenvolvimento de aplicações modernas, especialmente voltadas para ambientes de cloud computing e DevOps. Esses princípios visam padronizar a forma como aplicações são desenvolvidas, configuradas, implantadas e operadas, promovendo maior portabilidade, escalabilidade, resiliência e facilidade de manutenção. A adoção desses fatores torna a aplicação mais preparada para automação de deploy, integração contínua, escalabilidade horizontal e operação confiável em ambientes distribuídos.
+
+Com base na análise do projeto desenvolvido, foram identificadas as seguintes oportunidades de melhoria, diretamente relacionadas aos princípios do 12-Factor App:
+
+• Código-fonte versionado (Fator 1):criação de um repositório de versionamento para não perder o histórico de builds e alterações;
+
+• Build, Release e Run (Fator 5): implementação de pipelines de CI/CD para automatizar e padronizar os processos de build, deploy e rollback;
+
+• Processes – Aplicação Stateless (Fator 6): externalização do estado da aplicação por meio do uso de Redis para gerenciamento de sessões;
+
+• Concurrency – Escalabilidade via Processos (Fator 8): adoção de load balancing e auto scaling para permitir escalabilidade automática conforme a demanda;
+
+• Logs – Logs como Fluxo de Eventos (Fator 11): centralização e observabilidade de logs com ferramentas apropriadas, permitindo monitoramento e diagnóstico eficaz;
+
+• Config – Configurações via Variáveis de Ambiente (Fator 3): evolução no uso de variáveis de ambiente com integração a serviços de gerenciamento de segredos, aumentando a segurança e governança.
+
+Conclui-se que o ToggleMaster atende a diversos princípios fundamentais do 12-Factor App, especialmente aqueles relacionados a versionamento de código, dependências explícitas, uso de serviços externos e exposição por porta. Entretanto, para evoluir de um MVP para um ambiente de produção escalável e resiliente, torna-se essencial avançar na automação, observabilidade, segregação de ambientes e adoção de práticas cloud-native. A implementação dessas melhorias alinhará o projeto de forma mais completa aos princípios do 12-Factor App e às melhores práticas de DevOps.
+
 
 ## Integrantes:
     • Augusto Henrique Gomes Bitiano - rm369357
